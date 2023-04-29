@@ -81,7 +81,7 @@
       </tr>
       <tr>
         <td><img src="PlantSeg.png" width="250" height="150"></td>
-        <td>As the lead researcher of this study, I aimed to streamline the quantification process of cells in a plant's xylem tissue. Historically, botanists would manually record and count thousands of cell elements in each cross section. To address this laborious task, we implemented an iterative Deep Neural Network object detection algorithm that counts and regionalizes every cell type in cross-sectional images of xylem tissue. Additionally, we extended this object detection to measure the diameter and width of the vessels. We accomplished this by measuring the pixel ratio of the cell type in relation to the size of the image. These advancements in automating the quantification process can provide valuable insights into the anatomy, development, and immune system of plants.</td>
+        <td>In this project, I constructed a deep convolutional neural network (DCNN) to segment and classify cell types in light micrographs. I created an encoder-decoder U-Net architecture using convolutional layers to encode features and transposed convolutional layers to upscale features to a vessel segmentation mask. I interleaved batch normalization and max pooling layers to provide strong regularization. For classification, I explored transformers and convolutional neural networks and achieved a 98.1% accuracy. The testing samples were isolated, and the DCNN performed vessel segmentation with high pixel classification accuracy (97.05%) and excellent precision score (80.71%). <b>(ESA 2023)</b> </td>
       </tr>
     </table>
     
