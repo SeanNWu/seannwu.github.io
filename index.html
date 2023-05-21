@@ -55,6 +55,11 @@
         <td><img src="eye.png" width="250" height="150"></td>
         <td>In this research, I developed a deep learning approach for the segmentation of eyelid and iris contours to aid facial reconstructive surgeons. To standardize the dataset, I utilized a pre-trained eye detection algorithm to crop the patient's eyes and normalize magnification. A deep U-Net network was used for semantic segmentation, consisting of encoding and decoding layers. Data augmentation techniques were used to improve model generalization, and a DICE binary cross-entropy loss function was used to calculate the loss. Finally, two independent models were trained for eyelid and iris segmentation, respectively. The iris segmentation model aids in precise image registration before and after surgery. <b>(Submitting to ASOPRS 2023)</b></td>
       </tr>
+      </tr>
+        <tr>
+        <td><img src="TPS.png" width="250" height="150"></td>
+        <td> In my research project, I focused on tarsal plate contour segmentation in patient images. I utilized a deep neural network approach to learn the correlation between the raw input images and the tarsal plate contours. Specifically, I implemented a deep encoder-decoder U-Net with a pre-trained ResNet50 encoder to extract image features and generate a binary segmentation mask. The network was trained using a DICE binary cross entropy loss function, a learning rate of 1e-4, and a batch size of 2.  <b>(Submitting to ASOPRS 2023)</b></td>
+      </tr>
        <tr>
         <td><img src="ARVO.png" width="250" height="150"></td>
         <td>I was involved in a study that aimed to develop a deep learning (DL) model for predicting visual field (VF) progression in glaucoma patients using baseline optical coherence tomography (OCT) and serial optic disc photographs (ODPs). The study analyzed the data of 3,081 eyes from 1,646 patients with glaucoma or glaucoma suspect, with an average follow-up time of 7.8 (4.7) and 10.3 (5.1) years for stable and progressing eyes, respectively. The results showed that VF progression was detected in 29% of eyes and the mean time to progression in the progressing group was 6.8 (4.2) years. The DL model with baseline OCT and serial ODPs had a high accuracy in predicting VF progression years ahead of time. This model may have clinical implications for earlier detection of glaucoma progression. <b>(Accepted to ARVO 2023)</b></td>
@@ -64,7 +69,7 @@
         <td>I conducted research on a deep survival analysis algorithm to predict future glaucoma progression and time to detect progression (TTP) from early visual field (VF) information using a deep learning (DL) model. The TTP was the date of the two consecutive visits. I designed a DL model to predict glaucoma progression from the threshold sensitivities at the 54 points of the first five VF visits. I paired a survival analysis with the DL model for predicting the TTP. The results showed that the mean of TTP was 3.4 years, the AUC for predicting future glaucoma progression was 0.81, and the R squared and mean absolute error between the actual and predicted TTP were 0.92 and 0.73 years, respectively. <b>(Submitted to AAO 2023)</b></td>
       </tr>
        <tr>
-        <td><img src="ODP.jpeg" width="250" height="150"></td>
+        <td><img src="ODP.png" width="250" height="150"></td>
         <td>I participated in a research project that aimed to design a deep learning model for predicting the progression of glaucoma using a multimodal approach. I collaborated with other researchers to utilize a convolutional neural network pre-trained on ImageNet and incorporated baseline structural measures including disc photographs, retinal nerve fiber layer, and macular OCT measures as predictors. By combining all three imaging modalities, our model achieved a significantly higher performance for predicting progression with an AUC of 0.884 [0.834-0.934]. <b>(Submitted to AAO 2023)</b></td>
       </tr>
        <tr>
