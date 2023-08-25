@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Sean Wu</title>
     <style>
@@ -13,14 +14,16 @@
         }
 
         .image-container img {
-            width: 50%; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
+            max-width: 50%; /* Limit the maximum width to 50% of container */
+            max-height: 100%; /* Limit the maximum height to container's height */
+            width: auto; /* Allow width to adjust while maintaining aspect ratio */
+            height: auto; /* Allow height to adjust while maintaining aspect ratio */
             padding: 10px; /* Add some spacing between images */
         }
     </style>
-  </head>
-  <body>
-     <h1 style="margin-top:20px; margin-bottom:20px;"></h1>
+</head>
+<body>
+    <h1 style="margin-top:20px; margin-bottom:20px;"></h1>
     <div class="image-container">
         <img src="IMG_0764.png" alt="Image 1" class="profile">
         <img src="poster_pres.JPG" alt="Image 2" class="profile">
