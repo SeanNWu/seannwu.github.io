@@ -6,13 +6,24 @@
         margin-left: 200px;
         margin-right: 200px;
       }
+    .image-container {
+            display: flex; /* Use flexbox for horizontal alignment */
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+        }
 
+        .image-container img {
+            width: 50%; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            padding: 10px; /* Add some spacing between images */
+        }
     </style>
   </head>
   <body>
      <h1 style="margin-top:20px; margin-bottom:20px;"></h1>
-   <div style="text-align: center; display: flex; justify-content: center; align-items: center;">
-      <img src="IMG_0764.png" width="512" height="384" class="profile">
+    <div class="image-container">
+        <img src="IMG_0764.png" alt="Image 1" class="profile">
+        <img src="poster_pres.JPG" alt="Image 2" class="profile">
     </div>
 
 
