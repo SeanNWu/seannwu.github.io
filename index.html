@@ -3,23 +3,43 @@
 <head>
     <title>Sean Wu</title>
     <style>
+      @font-face {
+        font-family: "Computer Modern";
+        src: url ('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+      }
+      @font-face {
+        font-family: "Computer Modern";
+        src: url ('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+        font-weight: bold;
+      }
+      @font-face {
+        font-family: "Computer Modern";
+        src: url ('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+        font-style: italic, oblique;
+      }
+      @font-face {
+        font-family: "Computer Modern";
+        src: url ('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+        font-weight: bold;
+        font-style: italic, oblique;
+      }
       body {
+        font-family: "Computer Modern", sans-serif;
         margin-left: 200px;
         margin-right: 200px;
       }
-    .image-container {
-            display: flex; /* Use flexbox for horizontal alignment */
-            justify-content: center; /* Center items horizontally */
-            align-items: center; /* Center items vertically */
-        }
-
-        .image-container img {
-            max-width: 50%; /* Limit the maximum width to 50% of container */
-            max-height: 100%; /* Limit the maximum height to container's height */
-            width: auto; /* Allow width to adjust while maintaining aspect ratio */
-            height: auto; /* Allow height to adjust while maintaining aspect ratio */
-            padding: 10px; /* Add some spacing between images */
-        }
+      .image-container {
+        display: flex; /* Use flexbox for horizontal alignment */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+      }
+      .image-container img {
+        max-width: 50%; /* Limit the maximum width to 50% of container */
+        max-height: 100%; /* Limit the maximum height to container's height */
+        width: auto; /* Allow width to adjust while maintaining aspect ratio */
+        height: auto; /* Allow height to adjust while maintaining aspect ratio */
+        padding: 10px; /* Add some spacing between images */
+      }
     </style>
 </head>
 <body>
