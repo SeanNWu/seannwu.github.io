@@ -59,28 +59,75 @@
     <br>
     
 <h2>Awards and Honors</h2>
-<div style="display: flex; flex-direction: column; gap: 20px;">
-    <div style="display: flex; align-items: center; gap: 10px;">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+    <!-- Goldwater Scholarship -->
+    <div style="width: 180px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
         <img src="11.png" width="180" height="108" alt="Goldwater Scholarship">
-        <p>Named one of 413 Scholars out of an estimated pool of over 5,000 college sophomores and juniors, highlighting exceptional aptitude and potential for a research career in natural sciences, engineering, and mathematics. See <a href="https://goldwaterscholarship.gov/">Goldwater Scholarship Website</a>.</p>
+        <div style="padding: 10px; height: 60px; background-color: #f9f9f9; position: relative;">
+            <p>Goldwater Scholarship</p>
+            <div style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.9); padding: 10px;">
+                Named one of 413 Scholars out of an estimated pool of over 5,000 college sophomores and juniors. See <a href="https://goldwaterscholarship.gov/">Goldwater Scholarship Website</a>.
+            </div>
+        </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 10px;">
+
+    <!-- CRA Outstanding Undergraduate Researcher -->
+    <div style="width: 180px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
         <img src="OIP.jpeg" width="180" height="90" alt="CRA Outstanding Undergraduate Researcher">
-        <p>Computing Research Association Outstanding Undergraduate Researcher Honorable Mention 2024. See <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">CRA Website</a>.</p>
+        <div style="padding: 10px; height: 60px; background-color: #f9f9f9; position: relative;">
+            <p>CRA Researcher Honor</p>
+            <div style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.9); padding: 10px;">
+                Computing Research Association Outstanding Undergraduate Researcher Honorable Mention 2024. See <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">CRA Website</a>.
+            </div>
+        </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 10px;">
+
+    <!-- Amazon SURE Fellowship -->
+    <div style="width: 180px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
         <img src="10.png" width="180" height="108" alt="Amazon SURE Fellowship">
-        <p>Summer 2023: Research fellow at Amazon SURE @ Columbia University, conducted research under Simon Billinge. Check out the program details here: <a href="https://www.amazon.science/sure">Amazon Science Website</a></p>
+        <div style="padding: 10px; height: 60px; background-color: #f9f9f9; position: relative;">
+            <p>Amazon SURE Fellowship</p>
+            <div style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.9); padding: 10px;">
+                Summer 2023: Research fellow at Amazon SURE @ Columbia University, conducted research under Simon Billinge. Check out the program details here: <a href="https://www.amazon.science/sure">Amazon Science Website</a>
+            </div>
+        </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 10px;">
+
+    <!-- Northrop Grumman Scholarship -->
+    <div style="width: 180px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
         <img src="northrop.png" width="180" height="80" alt="Northrop Grumman Scholarship">
-        <p>Awarded the Northrop Grumman Endowed Scholarship for outstanding computer science student.</p>
+        <div style="padding: 10px; height: 60px; background-color: #f9f9f9; position: relative;">
+            <p>Northrop Grumman Scholarship</p>
+            <div style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.9); padding: 10px;">
+                Awarded the Northrop Grumman Endowed Scholarship for outstanding computer science student.
+            </div>
+        </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 10px;">
+
+    <!-- Keck Scholars Program -->
+    <div style="width: 180px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
         <img src="keck.png" width="180" height="70" alt="Keck Scholars Program">
-        <p>Summer 2022: Participated in the Keck Scholars Fellows program at Pepperdine, conducting research during both the school year and summer.</p>
+        <div style="padding: 10px; height: 60px; background-color: #f9f9f9; position: relative;">
+            <p>Keck Scholars Program</p>
+            <div style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.9); padding: 10px;">
+                Summer 2022: Participated in the Keck Scholars Fellows program at Pepperdine, conducting research during both the school year and summer.
+            </div>
+        </div>
     </div>
+
 </div>
+
+<script>
+    document.querySelectorAll('div[style*="border:"]').forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+            this.querySelector('div div').style.display = 'block';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.querySelector('div div').style.display = 'none';
+        });
+    });
+</script>
     
     
 <h2>Research Projects</h2>
