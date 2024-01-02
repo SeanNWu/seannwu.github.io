@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +9,11 @@
         color: #333;
         line-height: 1.6;
       }
-      h1, h2, h3, h4, h5, h6 {
+      h1 {
+        color: #444;
+        text-align: center; /* Center the title */
+      }
+      h2, h3, h4, h5, h6 {
         color: #444;
       }
       a {
@@ -21,33 +24,27 @@
         text-decoration: underline;
       }
       .content {
-        display: flex; /* Use flexbox for horizontal alignment */
-        align-items: flex-start; /* Align items to the top */
+        display: flex;
+        align-items: flex-start;
       }
       .content img {
-        max-width: 30%; /* Limit the maximum width to 30% of container */
-        max-height: 100%; /* Limit the maximum height to container's height */
-        width: auto; /* Allow width to adjust while maintaining aspect ratio */
-        height: auto; /* Allow height to adjust while maintaining aspect ratio */
-        padding: 10px; /* Add some spacing between images */
-        margin-right: 20px; /* Add some spacing to the right of the image */
+        max-width: 30%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        margin-right: 20px;
       }
       .description {
-        flex-grow: 1; /* Allow the description to take up the remaining space */
+        flex-grow: 1;
       }
-      /* Empty line with padding */
       .empty-line {
-        height: 20px; /* Adjust the height as needed */
-      }
-         h1 {
-        text-align: center; /* Center-align the text */
-        margin-top: 10px; /* Optional: Adjust top margin as needed */
-        margin-bottom: 10px; /* Optional: Adjust bottom margin as needed */
+        height: 20px;
       }
     </style>
 </head>
 <body>
-        <h1>Sean Wu</h1>
+    <h1>Sean Wu</h1> <!-- Title centered above the content -->
 
     <div class="content">
 
