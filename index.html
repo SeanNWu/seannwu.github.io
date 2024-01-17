@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <title>Sean Wu</title>
-
+    <title>Sean Wu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensuring proper scaling on mobile devices -->
     <style>
-      body {
-        font-family: "Times New Roman", Times, serif;
-        margin-left: 200px;
-        margin-right: 200px;
-        color: #333;
-        line-height: 1.6;
-      }
-      h1 {
-        color: #444;
-        text-align: center; /* Center the title */
-      }
-      h2, h3, h4, h5, h6 {
-        color: #444;
-      }
-      a {
-        color: #0645AD;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .content {
-        display: flex;
-        align-items: flex-start;
-      }
-      .content img {
-        max-width: 30%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        padding: 10px;
-        margin-right: 20px;
-      }
-      .description {
-        flex-grow: 1;
-      }
-      .empty-line {
-        height: 20px;
-      }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin-left: 10%; /* changed to percentage for relative sizing */
+            margin-right: 10%; /* changed to percentage for relative sizing */
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #444;
+            text-align: center; /* Center the title */
+        }
+        h2, h3, h4, h5, h6 {
+            color: #444;
+        }
+        a {
+            color: #0645AD;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap; /* allowing content to wrap on smaller screens */
+            align-items: flex-start;
+        }
+        .content img {
+            max-width: 100%; /* making images responsive */
+            height: auto; /* maintaining aspect ratio */
+            padding: 10px;
+        }
+        .description {
+            flex-grow: 1;
+        }
+        .empty-line {
+            height: 20px;
+        }
+        
+        /* Responsive grid for awards and honors section */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* making the grid responsive */
+            gap: 20px;
+        }
+        .grid-item {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+        }
+        .grid-item div {
+            padding: 10px;
+            background-color: #f9f9f9;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 600px) {
+            body {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .content {
+                flex-direction: column; /* stack content vertically on small screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -66,48 +101,46 @@
     
 
 <h2>Awards and Honors</h2>
-<div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
-
+<div class="grid-container">
     <!-- Goldwater Scholarship -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-        <img src="11.png" style="width: 100%; height: auto;" alt="Goldwater Scholarship Winner 2023">
-        <div style="padding: 10px; background-color: #f9f9f9; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+    <div class="grid-item">
+        <img src="11.png" alt="Goldwater Scholarship Winner 2023">
+        <div>
             <p>Barry Goldwater Scholarship Winner 2023</p>
         </div>
     </div>
 
     <!-- CRA Outstanding Undergraduate Researcher -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-        <img src="OIP.jpeg" style="width: 100%; height: auto;" alt="CRA Outstanding Undergraduate Researcher Honorable Mention 2024">
-        <div style="padding: 10px; background-color: #f9f9f9; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+    <div class="grid-item">
+        <img src="OIP.jpeg" alt="CRA Outstanding Undergraduate Researcher Honorable Mention 2024">
+        <div>
             <p>CRA Outstanding Undergraduate Researcher Honorable Mention 2024</p>
         </div>
     </div>
 
     <!-- Amazon SURE Fellowship -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-        <img src="10.png" style="width: 100%; height: auto;" alt="Amazon SURE Research Fellow Summer 2023">
-        <div style="padding: 10px; background-color: #f9f9f9; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+    <div class="grid-item">
+        <img src="10.png" alt="Amazon SURE Research Fellow Summer 2023">
+        <div>
             <p>Amazon SURE Research Fellow Summer 2023</p>
         </div>
     </div>
 
     <!-- Northrop Grumman Scholarship -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-        <img src="northrop.png" style="width: 100%; height: auto;" alt="Northrop Grumman Endowed Scholarship For Computer Science">
-        <div style="padding: 10px; background-color: #f9f9f9; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+    <div class="grid-item">
+        <img src="northrop.png" alt="Northrop Grumman Endowed Scholarship For Computer Science">
+        <div>
             <p>Awarded Northrop Grumman Endowed Scholarship For Computer Science</p>
         </div>
     </div>
 
     <!-- Keck Scholars Program -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-        <img src="keck.png" style="width: 100%; height: auto;" alt="Keck Scholars Research Fellow in Artificial Intelligence Summer 2022">
-        <div style="padding: 10px; background-color: #f9f9f9; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+    <div class="grid-item">
+        <img src="keck.png" alt="Keck Scholars Research Fellow in Artificial Intelligence Summer 2022">
+        <div>
             <p>Keck Scholars Research Fellow in Artificial Intelligence Summer 2022</p>
         </div>
     </div>
-
 </div>
 <h2>Research Projects</h2>
     
