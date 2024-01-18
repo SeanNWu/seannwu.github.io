@@ -43,41 +43,47 @@
       .empty-line {
         height: 20px;
       }
-     .tab {
-        overflow: hidden;
-        background-color: #f1f1f1;
-        border: 1px solid #ccc;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        margin-top: 20px;
-      }
+.tab {
+    overflow: hidden;
+    background-color: #ffffff; /* Light background for the tab */
+    border: 1px solid #dcdcdc; /* Subtle border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    margin-top: 20px;
+}
 
-      .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 20px;
-        transition: 0.3s;
-        font-size: 17px;
-        font-family: 'Roboto', sans-serif; /* Updated font family */
-      }
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: 0.3s;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    color: #555; /* Darker font color for better readability */
+    border-bottom: 3px solid transparent; /* For the active tab effect */
+}
 
-      .tab button:hover {
-        background-color: #ddd;
-      }
+.tab button:hover {
+    background-color: #f9f9f9; /* Light color on hover */
+    color: #333; /* Darker text on hover */
+}
 
-      .tab button.active {
-        background-color: #ccc;
-      }
+.tab button.active {
+    background-color: #f1f1f1;
+    color: #333;
+    border-bottom: 3px solid #2c3e50; /* Color accent on the active tab */
+}
 
-      .tabcontent {
-        display: none;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-top: none;
-        font-family: 'Roboto', sans-serif; /* Updated font family */
-      }
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    border-top: none;
+    font-family: 'Roboto', sans-serif;
+}
+
     </style>
 </head>
 <body>
