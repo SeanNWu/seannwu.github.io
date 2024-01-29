@@ -96,6 +96,25 @@
     border-top: none;
     font-family: 'Roboto', sans-serif;
 }
+.hobby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* space between hobbies */
+}
+
+.hobby-image img {
+    width: auto; /* maintain aspect ratio */
+    max-width: 100%; /* ensure it doesn't get too big */
+}
+
+.hobby-description {
+    text-align: center; /* center the text under the image */
+    margin-top: 10px; /* space between image and text */
+    width: 100%; /* make sure the container takes the full width */
+    padding: 0 10px; /* padding on sides, if needed */
+}
+
 
     </style>
 </head>
@@ -367,33 +386,29 @@
 
 
 <div id="Hobbies" class="tabcontent">
+
 <h3>Music</h3>
-<table cellspacing="15">
-    <tr>
-        <td>
-        <img src="sean_tuba.JPG" alt="Sean playing the tuba" width="200" height="206">
-        </td>
-        <td>
-            <br>
-                I currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
-        <br>
-        </td>
-    </tr>       
-</table>
-<h3>Basketball</h3>
-<table cellspacing="15">
-    <tr>
-        <td>
-        <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023" width="300" height="272">
-        </td>
-        <td>
-            <br>
-Basketball is my favorite hobby. Here is my intramural team from 2023!
-                <br>
-        </td>
-    </tr>       
-</table>
+<div class="hobby">
+    <div class="hobby-image">
+        <img src="sean_tuba.JPG" alt="Sean playing the tuba">
+    </div>
+    <div class="hobby-description">
+        I currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
+    </div>
 </div>
+
+<h3>Basketball</h3>
+<div class="hobby">
+    <div class="hobby-image">
+        <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
+    </div>
+    <div class="hobby-description">
+        Basketball is my favorite hobby. Here is my intramural team from 2023!
+    </div>
+</div>
+
+</div>
+
 
  <script>
       function openTab(evt, tabName) {
