@@ -96,6 +96,24 @@
     border-top: none;
     font-family: 'Roboto', sans-serif;
 }
+.hobby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* space between hobbies */
+}
+
+.hobby-image img {
+    width: auto; /* maintain aspect ratio */
+    max-width: 100%; /* ensure it doesn't get too big */
+}
+
+.hobby-description {
+    text-align: center; /* center the text under the image */
+    margin-top: 10px; /* space between image and text */
+    width: 100%; /* make sure the container takes the full width */
+    padding: 0 10px; /* padding on sides, if needed */
+}
 
 
 
@@ -369,47 +387,34 @@
 
 <div id="Hobbies" class="tabcontent">
 
-  <h3>Basketball</h3>
-
-  <div class="hobby-grid">
-
-    <div class="hobby-image" style="width: 30%">
-      <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
+<h2>Basketball</h2>
+<div class="hobby">
+    <div class="hobby-image">
+        <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
     </div>
-
-    <div class="hobby-description" style="width: 70%">
-      My intramural team for this year 2024. We are currently 1-0 and hope to continue the streak. My best friends are on this team 😊
+    <div class="hobby-description">
+        Current intramural team consisting of my best friends😊 with a record of 1-0. Lets keep the streak going.
     </div>
-
-  </div>
-
-  <div class="hobby-grid">
-
-    <div class="hobby-image" style="width: 30%">
-      <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
+<div class="hobby">
+    <div class="hobby-image">
+        <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
     </div>
-
-    <div class="hobby-description" style="width: 70%">
-      Here is my intramural team from 2023. We came up short but was a great season to start off college.
+    <div class="hobby-description">
+        Intramural team last year, it was a great first experience although we came up short.
     </div>
-
-  </div>
-
-  <h3>Music</h3>
-
-  <div class="hobby-grid">
-
-    <div class="hobby-image" style="width: 30%">
-      <img src="sean_tuba.JPG" alt="Sean playing the tuba">
+<h2>Music</h2>
+<div class="hobby">
+    <div class="hobby-image">
+        <img src="sean_tuba.JPG" alt="Sean playing the tuba">
     </div>
-
-    <div class="hobby-description" style="width: 70%">
-      I am currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
+    <div class="hobby-description">
+        I am currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
     </div>
-
-  </div>
+</div>
+</div>
 
 </div>
+
 
  <script>
       function openTab(evt, tabName) {
