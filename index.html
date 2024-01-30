@@ -96,26 +96,12 @@
     border-top: none;
     font-family: 'Roboto', sans-serif;
 }
-.hobby {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px; /* space between hobbies */
-}
 
-.hobby-image img {
-    width: auto; /* maintain aspect ratio */
-    max-width: 20%; /* ensure it doesn't get too big */
+            .hobby-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
-
-.hobby-description {
-        text-align: center; /* center the text under the image */
-        width: 90%; /* make sure the container takes the full width */
-        padding: 10px; /* padding inside the text container */
-        background: #f9f9f9; /* light background for the text */
-        border-radius: 5px; /* rounded corners for the text background */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* subtle shadow for the text background */
-    }
 
 
     </style>
@@ -389,31 +375,37 @@
 
 <div id="Hobbies" class="tabcontent">
 
-<h3>Music</h3>
-<div class="hobby">
-    <div class="hobby-image">
-        <img src="sean_tuba.JPG" alt="Sean playing the tuba">
-    </div>
-    <div class="hobby-description">
-        I currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
-    </div>
-</div>
+  <h3>Music</h3>
 
-<h3>Basketball</h3>
-<div class="hobby">
- <div class="hobby-image">
+  <div class="hobby-grid">
+    <div class="hobby">
+      <div class="hobby-image">
+        <img src="sean_tuba.JPG" alt="Sean playing the tuba">
+      </div>
+      <div class="hobby-description">
+        I currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
+      </div>
+    </div>
+
+    <div class="hobby">
+      <div class="hobby-image">
         <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
-    </div>
-    <div class="hobby-description">
+      </div>
+      <div class="hobby-description">
         My intramural team for this year 2024. We are currently 1-0 and hope to continue the streak. My best friends are on this team 😊
+      </div>
     </div>
-    <div class="hobby-image">
+
+    <div class="hobby">
+      <div class="hobby-image"> 
         <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
+      </div>
+      <div class="hobby-description">
+        Here is my intramural team from 2023. We came up short but was a great season to start off college.
+      </div>
     </div>
-    <div class="hobby-description">
-         Here is my intramural team from 2023. We came up short but was a great season to start off college.
-    </div>
-</div>
+
+  </div>
 
 </div>
 
