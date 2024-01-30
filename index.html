@@ -96,36 +96,34 @@
     border-top: none;
     font-family: 'Roboto', sans-serif;
 }
-.hobby-table {
-    width: 100%; /* make the table span the entire width of the container */
-    border-collapse: collapse; /* collapse borders */
+.hobby-container {
+    display: flex;
+    flex-direction: row; /* align items in a row */
+    align-items: center; /* align items vertically */
+    justify-content: flex-start; /* align items to the start of the container */
     margin-bottom: 20px; /* space between each hobby */
+    border-bottom: 1px solid #ccc; /* add a subtle border between hobbies */
+    padding-bottom: 20px; /* space below each hobby */
 }
 
-.hobby-row {
-    display: table-row;
-}
-
-.hobby-image-cell, .hobby-description-cell {
-    display: table-cell;
-    vertical-align: middle; /* align content vertically in the middle */
-    padding: 10px; /* padding inside each cell */
-}
-
-.hobby-image-cell {
-    width: 200px; /* fixed width for image cells */
+.hobby-image {
+    flex: 0 0 150px; /* don't grow, don't shrink, set base width */
     text-align: center; /* center the image */
+    margin-right: 20px; /* space between image and text */
 }
 
 .hobby-image img {
     width: 100%; /* make image fill the container */
     height: auto; /* maintain aspect ratio */
-    max-width: 200px; /* you can set a max-width to control the size */
+    max-width: 150px; /* maximum width for the image */
+    border-radius: 5px; /* optional: add rounded corners to the image */
 }
 
-.hobby-description-cell {
-    width: calc(100% - 200px); /* rest of the width */
+.hobby-description {
+    flex: 1; /* take up the remaining space */
+    text-align: left; /* align text to the left */
 }
+
 
 
     </style>
@@ -399,41 +397,36 @@
 <div id="Hobbies" class="tabcontent">
 
 <h2>Basketball</h2>
-<table class="hobby-table">
-    <tr class="hobby-row">
-        <td class="hobby-image-cell">
-            <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
-        </td>
-        <td class="hobby-description-cell">
-            Current intramural team consisting of my best friends😊 with a record of 1-0. Let's keep the streak going.
-        </td>
-    </tr>
-</table>
+<div class="hobby-container">
+    <div class="hobby-image">
+        <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
+    </div>
+    <div class="hobby-description">
+        Current intramural team consisting of my best friends😊 with a record of 1-0. Let's keep the streak going.
+    </div>
+</div>
 
-<table class="hobby-table">
-    <tr class="hobby-row">
-        <td class="hobby-image-cell">
-            <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
-        </td>
-        <td class="hobby-description-cell">
-            Intramural team last year, it was a great first experience although we came up short.
-        </td>
-    </tr>
-</table>
+<div class="hobby-container">
+    <div class="hobby-image">
+        <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
+    </div>
+    <div class="hobby-description">
+        Intramural team last year, it was a great first experience although we came up short.
+    </div>
+</div>
 
 <h2>Music</h2>
-<table class="hobby-table">
-    <tr class="hobby-row">
-        <td class="hobby-image-cell">
-            <img src="sean_tuba.JPG" alt="Sean playing the tuba">
-        </td>
-        <td class="hobby-description-cell">
-            I am currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
-        </td>
-    </tr>
-</table>
+<div class="hobby-container">
+    <div class="hobby-image">
+        <img src="sean_tuba.JPG" alt="Sean playing the tuba">
+    </div>
+    <div class="hobby-description">
+        I am currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
+    </div>
+</div>
 
 </div>
+
 
 
 
