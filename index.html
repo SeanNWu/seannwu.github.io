@@ -98,20 +98,30 @@
 }
 .hobby {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* align items in a row */
+    align-items: center; /* center items vertically */
+    justify-content: center; /* center items horizontally */
     margin-bottom: 20px; /* space between hobbies */
 }
 
-.hobby-image img {
+.hobby-image {
     width: auto; /* maintain aspect ratio */
-    max-width: 100%; /* ensure it doesn't get too big */
+    max-width: 50%; /* maximum 50% width of its parent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hobby-image img {
+    width: 100%; /* make image fill the container */
+    max-width: 200px; /* you can set a max-width to control the size */
+    height: auto; /* maintain aspect ratio */
 }
 
 .hobby-description {
     text-align: center; /* center the text under the image */
-    margin-top: 10px; /* space between image and text */
-    width: 100%; /* make sure the container takes the full width */
+    margin-left: 20px; /* space between image and text */
+    flex: 1; /* take the remaining space */
     padding: 0 10px; /* padding on sides, if needed */
 }
 
@@ -393,8 +403,10 @@
         <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
     </div>
     <div class="hobby-description">
-        Current intramural team consisting of my best friends😊 with a record of 1-0. Lets keep the streak going.
+        Current intramural team consisting of my best friends😊 with a record of 1-0. Let's keep the streak going.
     </div>
+</div> <!-- Make sure to close the hobby div here -->
+
 <div class="hobby">
     <div class="hobby-image">
         <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
@@ -402,6 +414,8 @@
     <div class="hobby-description">
         Intramural team last year, it was a great first experience although we came up short.
     </div>
+</div> <!-- Close this hobby div as well -->
+
 <h2>Music</h2>
 <div class="hobby">
     <div class="hobby-image">
@@ -410,10 +424,10 @@
     <div class="hobby-description">
         I am currently the principal tuba at Pepperdine on a music scholarship! I started the tuba in 6th grade and have been active in ensembles ever since.
     </div>
-</div>
-</div>
+</div> <!-- And close this hobby div -->
 
 </div>
+
 
 
  <script>
