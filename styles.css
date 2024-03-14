@@ -118,5 +118,12 @@
     text-align: left; /* align text to the left */
 }
 
+.wrapper {
+  max-width: 1200px; /* Adjust this value to set your desired maximum width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 
