@@ -2,154 +2,165 @@
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  padding: 0;
   color: #2c3e50;
   background-color: #fdfdfd;
   line-height: 1.7;
-  padding: 0;
 }
 
 .wrapper {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 /* === Header Bar === */
 .header-bar {
-  background-color: #002244; /* Deep navy for stronger professionalism */
+  background-color: #002b45; /* Deep professional blue */
   padding: 10px 30px;
   color: white;
-  font-weight: 500;
+  text-align: left;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1.header-title {
-  color: #fff;
-  font-size: 26px;
+  color: #ffffff;
   margin: 0;
-  padding: 0;
+  font-size: 26px;
+  font-weight: 500;
 }
 
-/* === Headings === */
-h1 {
-  color: #222;
-  font-size: 32px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-h2, h3, h4, h5, h6 {
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 {
   color: #2c3e50;
-  margin-top: 40px;
-  margin-bottom: 15px;
+  font-weight: 500;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
-/* === Links === */
+h1 {
+  text-align: center;
+  font-size: 32px;
+}
+
 a {
   color: #0056b3;
   text-decoration: none;
-  font-weight: 500;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #003366;
+  color: #003f7d;
 }
 
-/* === Content Section === */
+/* === Layout === */
 .content {
   display: flex;
   align-items: flex-start;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
 .content img {
   max-width: 300px;
-  width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .description {
   flex: 1;
-  min-width: 300px;
+  min-width: 250px;
 }
 
-/* === Empty Line === */
+/* === Empty Line Utility === */
 .empty-line {
-  height: 30px;
+  height: 20px;
 }
 
-/* === Tab Navigation === */
+/* === Tabs === */
 .tab {
   overflow: hidden;
   background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   margin-top: 30px;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
 }
 
 .tab button {
   background-color: transparent;
+  float: left;
   border: none;
-  outline: none;
   cursor: pointer;
   padding: 14px 24px;
-  transition: 0.3s ease;
   font-size: 16px;
-  color: #444;
-  font-weight: 500;
+  color: #333;
   border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .tab button:hover {
-  background-color: #f2f2f2;
-  color: #222;
+  background-color: #f5f5f5;
+  color: #111;
 }
 
 .tab button.active {
-  background-color: #f8f8f8;
-  color: #222;
+  background-color: #f0f0f0;
   border-bottom: 3px solid #003366;
+  color: #003366;
+  font-weight: 500;
 }
 
-/* === Tab Content === */
 .tabcontent {
   display: none;
-  padding: 24px;
-  border: 1px solid #ccc;
+  padding: 20px;
+  border: 1px solid #dcdcdc;
   border-top: none;
-  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
   border-radius: 0 0 6px 6px;
 }
 
-/* === Hobbies Section === */
+/* === Hobby Section === */
 .hobby-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eaeaea;
   padding-bottom: 20px;
 }
 
 .hobby-image {
-  flex: 0 0 150px;
+  flex: 0 0 140px;
+  margin-right: 20px;
   text-align: center;
 }
 
 .hobby-image img {
   width: 100%;
   height: auto;
-  max-width: 150px;
+  max-width: 140px;
   border-radius: 8px;
 }
 
 .hobby-description {
   flex: 1;
-  min-width: 250px;
   text-align: left;
+}
+
+/* === Responsive Enhancements === */
+@media (max-width: 768px) {
+  .content, .hobby-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .description, .hobby-description {
+    text-align: center;
+  }
+
+  .hobby-image {
+    margin-bottom: 15px;
+  }
 }
