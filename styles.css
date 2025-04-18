@@ -81,12 +81,13 @@ a:hover {
 .tab {
   overflow: hidden;
   background-color: #fff;
-  border: 1px solid #dcdcdc;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
+/* Tab Buttons */
 .tab button {
   background-color: transparent;
   float: left;
@@ -94,30 +95,40 @@ a:hover {
   cursor: pointer;
   padding: 14px 24px;
   font-size: 16px;
-  color: #333;
+  color: #666;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
+  border-radius: 8px 8px 0 0; /* Rounded corners on top */
 }
 
 .tab button:hover {
   background-color: #f5f5f5;
-  color: #111;
+  color: #003366;
 }
 
 .tab button.active {
-  background-color: #f0f0f0;
-  border-bottom: 3px solid #003366;
-  color: #003366;
+  background-color: #003366;
+  color: #fff;
   font-weight: 500;
+  border-bottom: 3px solid #003366;
 }
 
+/* Tab Content */
 .tabcontent {
   display: none;
   padding: 20px;
-  border: 1px solid #dcdcdc;
+  background-color: #f9f9f9;
+  border: 1px solid #e1e1e1;
   border-top: none;
   font-family: 'Roboto', sans-serif;
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 8px 8px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  margin-top: -1px; /* Removes gap between content and tab */
+}
+
+/* Show active tab content */
+.tabcontent.active {
+  display: block;
 }
 
 /* === Hobby Section === */
