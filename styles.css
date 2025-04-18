@@ -203,6 +203,18 @@ a:hover {
   margin-left: 6px;
 }
 
+.timeline-content {
+  padding-left: 10px;
+}
+
+.timeline-content br {
+  line-height: 1.2em;
+}
+
+.timeline-content::marker {
+  font-size: 1.2em;
+}
+
 
 /* === Responsive Enhancements === */
 @media (max-width: 768px) {
