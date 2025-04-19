@@ -78,55 +78,56 @@ a:hover {
 }
 
 /* === Tabs === */
+/* === Tab Container === */
 .tab {
-  overflow: hidden;
-  background-color: #fff;
-  border: 1px solid #e1e1e1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
-  border-radius: 8px;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  background-color: #ffffff;
+  margin-top: 40px;
+  gap: 4px;
+  flex-wrap: wrap;
 }
 
-/* Tab Buttons */
+/* === Tab Buttons === */
 .tab button {
-  background-color: transparent;
-  float: left;
-  border: none;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  padding: 12px 20px;
   cursor: pointer;
-  padding: 14px 24px;
-  font-size: 16px;
-  color: #666;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease;
-  border-radius: 8px 8px 0 0; /* Rounded corners on top */
+  font-size: 15px;
+  border-radius: 8px 8px 0 0;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tab button:hover {
-  background-color: #f5f5f5;
+  background-color: #e6ecf2;
   color: #003366;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .tab button.active {
   background-color: #003366;
-  color: #fff;
+  color: #ffffff;
   font-weight: 500;
-  border-bottom: 3px solid #003366;
+  box-shadow: none;
+  border-color: #003366;
 }
 
-/* Tab Content */
+/* === Tab Content === */
 .tabcontent {
   display: none;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #e1e1e1;
-  border-top: none;
+  padding: 24px 28px;
+  border: 1px solid #ddd;
+  border-radius: 0 0 12px 12px;
+  background-color: #ffffff;
   font-family: 'Roboto', sans-serif;
-  border-radius: 0 0 8px 8px;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
-  margin-top: -1px; /* Removes gap between content and tab */
+  margin-top: -1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
-/* Show active tab content */
 .tabcontent.active {
   display: block;
 }
