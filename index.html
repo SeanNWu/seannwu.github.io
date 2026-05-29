@@ -1,718 +1,1119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sean Wu</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sean Wu</title>
+<meta name="description" content="Sean Wu is a Rhodes Scholar and incoming Stanford CS PhD student working on reliable AI, uncertainty in LLMs, and AI for science and medicine." />
 
-  <!-- Stanford Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="//www-media.stanford.edu/assets/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="//www-media.stanford.edu/assets/favicon/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="//www-media.stanford.edu/assets/favicon/favicon-192x192.png" />
-  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta property="og:title" content="Sean Wu" />
+<meta property="og:description" content="Rhodes Scholar. Incoming Stanford CS PhD. Working on reliable AI." />
+<meta property="og:type" content="website" />
 
-  <meta name="application-name" content="Stanford University"/>
-  <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+<!-- Stanford favicon set -->
+<link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="//www-media.stanford.edu/assets/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="//www-media.stanford.edu/assets/favicon/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="//www-media.stanford.edu/assets/favicon/favicon-192x192.png" />
+<link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta name="application-name" content="Stanford University"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Palette — clean white with modern AI blue */
+  --bg:           #ffffff;
+  --bg-soft:      #f8fafc;
+  --ink:          #0a0a0a;
+  --ink-soft:     #3f3f46;
+  --ink-muted:    #6b7280;
+  --ink-faded:    #a1a1aa;
+  --link:         #2563eb;
+  --link-hover:   #1d4ed8;
+  --link-tint:    rgba(37, 99, 235, 0.07);
+  --link-tint-2:  rgba(37, 99, 235, 0.14);
+  --rule:         #e5e7eb;
+  --accent:       #2563eb;
+  --accent-tint:  rgba(37, 99, 235, 0.10);
+  --tag-bg:       #f1f5f9;
+
+  --sans:  'IBM Plex Sans', system-ui, sans-serif;
+  --serif: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 28px 80px;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--accent); color: #fff; }
+
+/* ========== Header ========== */
+.header {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 8px;
+}
+.header img,
+.header .photo-placeholder {
+  width: 170px;
+  height: 215px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--bg-soft);
+  box-shadow: 0 1px 0 var(--rule), 0 8px 24px -16px rgba(0,0,0,0.15);
+}
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.header h1 {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 500;
+  margin: -4px 0 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.header .role {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+.header .role .here { color: var(--ink); font-weight: 500; }
+.header .role .marker {
+  display: inline-block;
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  vertical-align: 2px;
+  margin-right: 6px;
+}
+
+/* Contact icon buttons */
+.contact {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  border-radius: 999px;
+  transition: all 0.18s ease;
+}
+.contact-btn:hover {
+  color: #fff;
+  background: var(--link);
+  border-color: var(--link);
+}
+.contact-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .header { grid-template-columns: 1fr; gap: 24px; }
+  .header img, .header .photo-placeholder { width: 150px; height: 190px; }
+  .header h1 { font-size: 32px; }
+}
+
+/* ========== Bio ========== */
+.bio { margin-top: 36px; }
+.bio p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.interests {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-size: 13px;
+  align-items: center;
+}
+.interests .label { color: var(--ink-muted); margin-right: 4px; }
+.interests .tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--tag-bg);
+  color: var(--ink-soft);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* ========== Tabs ========== */
+.tabs {
+  margin-top: 48px;
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+  padding-top: 6px;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  padding: 12px 18px;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+@media (max-width: 600px) {
+  .tabs { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab-btn { padding: 12px 14px; font-size: 14px; flex-shrink: 0; }
+}
+
+.tab-pane { display: none; padding: 36px 0 0; }
+.tab-pane.active { display: block; }
+
+/* Pane category headers */
+.cat {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 36px 0 18px;
+  letter-spacing: -0.005em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.cat:first-child { margin-top: 0; }
+.cat::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translateY(-3px);
+}
+.cat .count {
+  margin-left: auto;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-faded);
+}
+
+/* ========== News ========== */
+.news { font-size: 14.5px; }
+.news-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 18px;
+  padding: 7px 0;
+  align-items: baseline;
+}
+.news-date {
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.news-text { color: var(--ink); line-height: 1.55; }
+.news-text strong { font-weight: 600; }
+.news-new {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: 2px;
+  text-transform: uppercase;
+}
+.news-more { margin-top: 18px; font-size: 13.5px; }
+.news-more button {
+  background: none; border: none; padding: 0;
+  cursor: pointer; color: var(--link);
+  font-family: inherit; font-size: inherit;
+  border-bottom: 1px dotted var(--link);
+}
+.news-more button:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.news-hidden { display: none; }
+.news-hidden.show { display: grid; }
+@media (max-width: 600px) {
+  .news-row { grid-template-columns: 1fr; gap: 2px; padding: 9px 0; }
+}
+
+/* ========== Publications ========== */
+.legend {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  margin: -8px 0 18px;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  margin-bottom: 26px;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.pub-thumb {
+  width: 140px;
+  height: 95px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  position: relative;
+}
+.pub-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pub-thumb .ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-faded);
+  padding: 6px;
+  text-align: center;
+  line-height: 1.3;
+}
+.pub.featured .pub-thumb::after {
+  content: "★";
+  position: absolute;
+  top: 4px; right: 6px;
+  color: var(--accent);
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.pub-body { min-width: 0; }
+.pub .title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  margin-bottom: 3px;
+}
+.pub .title a { color: var(--ink); border-bottom: 1px solid transparent; }
+.pub .title a:hover { color: var(--link); border-bottom-color: var(--link); }
+.pub .authors { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 2px; }
+.pub .authors .me { color: var(--ink); font-weight: 600; }
+.pub .venue { color: var(--ink-muted); font-size: 13px; font-style: italic; margin-bottom: 8px; }
+.pub .venue .spotlight {
+  color: var(--accent); font-style: normal;
+  font-weight: 600; font-size: 12.5px;
+}
+
+/* Prominent paper link pills */
+.pub .links { display: flex; flex-wrap: wrap; gap: 6px; }
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--link);
+  background: var(--link-tint);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.link-pill:hover {
+  background: var(--link);
+  color: #fff;
+  border-color: var(--link);
+}
+.link-pill svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .pub { grid-template-columns: 110px 1fr; gap: 14px; }
+  .pub-thumb { width: 110px; height: 75px; }
+}
+@media (max-width: 420px) {
+  .pub { grid-template-columns: 1fr; gap: 10px; }
+  .pub-thumb { width: 100%; height: 140px; }
+}
+
+/* ========== Education & teaching ========== */
+.simple-list {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 14.5px;
+}
+.simple-list li {
+  padding: 9px 0;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--rule);
+}
+.simple-list li:last-child { border-bottom: none; }
+.simple-list li strong {
+  color: var(--ink);
+  font-weight: 500;
+  font-family: var(--serif);
+  font-size: 15.5px;
+}
+.simple-list .meta { color: var(--ink-muted); font-size: 13px; margin-left: 6px; }
+.simple-list .school-logo {
+  display: inline-block;
+  height: 22px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+}
+
+/* ========== Beyond / Hobbies ========== */
+.hobby-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.hobby-row:last-child { border-bottom: none; }
+.hobby-img {
+  width: 160px;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.hobby-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hobby-img .ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-style: italic;
+  font-size: 12px; color: var(--ink-faded);
+  padding: 6px; text-align: center;
+}
+.hobby-text {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .hobby-row { grid-template-columns: 120px 1fr; gap: 16px; }
+  .hobby-img { width: 120px; }
+}
+
+/* ========== Footer ========== */
+footer {
+  margin-top: 72px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  color: var(--ink-faded);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+footer a { color: var(--ink-muted); }
+</style>
 </head>
 <body>
-<div class="wrapper"> <!-- Start of wrapper -->
 
-<div class="content" style="display: flex; align-items: center; gap: 40px; margin: 60px auto; max-width: 1000px; flex-wrap: wrap;">
+<!-- Reusable SVG icon defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M5.242 13.769L0.5 9.5 12 1l11.5 8.5-4.742 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="16 18 22 12 16 6"/>
+      <polyline points="8 6 2 12 8 18"/>
+    </symbol>
+    <symbol id="i-data" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+      <path d="M3 12a9 3 0 0 0 18 0"/>
+    </symbol>
+    <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="23 7 16 12 23 17 23 7"/>
+      <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+      <polyline points="15 3 21 3 21 9"/>
+      <line x1="10" y1="14" x2="21" y2="3"/>
+    </symbol>
+  </defs>
+</svg>
 
-<img src="japan.JPG" alt="Sean Wu" style="width: 220px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); flex-shrink: 0;">
+<div class="wrap">
 
-  <div style="flex: 1; min-width: 280px;">
-    <h1 style="font-size: 2.6em; margin-bottom: 15px; margin-top: 0; color: #2c3e50; font-weight: 600;">Sean Wu</h1>
-<p style="font-size: 1.05em; line-height: 1.75; margin-top: 0;">
-I'm Sean Wu, a Rhodes Scholar and incoming Stanford CS PhD student. At Oxford, I am mentored by <a href="https://eng.ox.ac.uk/chi/team/">Professor David Clifton</a> and the <a href="https://torrvision.com/index.html">Torr Vision Group</a>. My research focuses on developing AI systems that reason more reliably and support scientific discovery and healthcare.
+  <!-- ============ Header ============ -->
+  <header class="header">
+    <!-- Replace with: <img src="japan.JPG" alt="Sean Wu" /> -->
+    <div class="photo-placeholder" aria-hidden="true">SW</div>
 
-</p> <p style="font-size: 1.05em; line-height: 1.75; margin-top: 1em;"> Previously, I completed my undergraduate studies at Pepperdine University, where I was mentored by <a href="https://web.cs.ucla.edu/~fab/">Professor Fabien Scalzo</a> and interned with <a href="https://www.james-zou.com/">Professor James Zou</a> (Stanford). Our research focused on computer vision in neurology and benchmarking medical LLMs. </p>
-   <p style="margin-top: 20px; font-size: 1.05em;">
-  <a href="mailto:seanwu@stanford.edu">
-    <i class="fas fa-envelope"></i> Email
-  </a> /
-  <a href="https://scholar.google.com/citations?user=Z7Ul8jUAAAAJ&hl=en&oi=sra">
-    <i class="fas fa-graduation-cap"></i> Google Scholar
-  </a> /
-  <a href="https://x.com/sean_n_wu">
-    <i class="fab fa-x-twitter"></i> X
-  </a>
-</p>
+    <div>
+      <h1>Sean Wu</h1>
+      <div class="role">
+        <span class="marker"></span><span class="here">Rhodes Scholar</span>, University of Oxford<br/>
+        Incoming Ph.D., Stanford Computer Science &nbsp;<span style="color: var(--ink-muted); font-size: 13px;">(Fall 2026)</span>
+      </div>
 
-  </div>
-</div>
-
-    
-   <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'News')">Exciting News</button>
-      <button class="tablinks" onclick="openTab(event, 'Research')">Selected Publications</button>
-      <button class="tablinks" onclick="openTab(event, 'Media')">Education</button>
-        <button class="tablinks" onclick="openTab(event, 'Hobbies')">Hobbies</button>
-    </div>
-
-<div id="News" class="tabcontent">
-  <div class="timeline">
-
-<div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">May 2026</span>
-    <span class="timeline-content">Excited to release <strong class="highlight">CUSP</strong>, forecasting scientific progress with AI, now on preprint.</span>
-  </div>
-</div> <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">May 2026</span>
-    <span class="timeline-content">BioMedArena: An Open-source Toolkit for Building and Evaluating Biomedical Deep Research Agents now on <strong class="highlight">preprint</strong>.</span>
-  </div>
-</div>
-
-    <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">May 2026</span>
-    <span class="timeline-content">MedMisBench: Measuring Epistemic Resilience of LLMs now available via <strong class="highlight">preprint</strong>.</span>
-  </div>
-</div>
-    
-    <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">April 2026</span>
-    <span class="timeline-content">
-New work introducing Behavioral Alignment Score (BAS) for LLMs, now on <strong class="highlight">preprint</strong> .    </span>
-  </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Mar 2026</span>
-    <span class="timeline-content">
-Invited talk titled "Towards Reliable AI in an Agentic Era" at <strong class="highlight"><a href="https://wavesinnovationsummit.com/" target="_blank">Waves Innovation Summit</a></strong> — <a href="https://drive.google.com/file/d/1otgbwneV0TLIJtDk8OaQk6n1ShxOZMGP/view?usp=sharing" target="_blank">slides</a>
-    </span>
-  </div>
-</div>
-
-    <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Mar 2026</span>
-    <span class="timeline-content">
-Short paper on selective prediction in LLMs available on <strong class="highlight">preprint</strong>!
-    </span>
-  </div>
-   </div>
-    
-   <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Feb 2026</span>
-    <span class="timeline-content">
-Paper on Semantic Self Distillation for LLMs Uncertainty available on <strong class="highlight">preprint</strong>!
-    </span>
-  </div>
-   </div>
-    
-       <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Jan 2026</span>
-    <span class="timeline-content">
-Paper on AI Protein Structure/Function for the kidney accepted to <strong class="highlight">Nature Reviews Nephrology</strong>!
-    </span>
-  </div>
-   </div>
-   <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Dec 2025</span>
-    <span class="timeline-content">
-Paper on multimodal glaucoma progression prediction accepted to <strong class="highlight">American Journal of Ophthalmology</strong>!
-    </span>
-  </div>
-   </div>
-    
-    <div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Nov 2025</span>
-    <span class="timeline-content">
-Grateful to receive a Tinker Research Grant from <strong class="highlight">Thinking Machines Lab</strong> to support my work on LLM alignment
-    </span>
-  </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">Sep 2025</span>
-    <span class="timeline-content">
-My first paper at <strong class="highlight">Oxford</strong> on Detecting and Correcting LLM Uncertainty available on <strong class="highlight">preprint</strong>.
-    </span>
-  </div>
-</div>
-
-
-    
-<div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">June 2025</span>
-    <span class="timeline-content">
-       Attended <strong class="highlight">YC AI Startup School</strong>. So inspirational!
-    </span>
-  </div>
-</div>
-
-
-
-<div class="timeline-item">
-  <div class="timeline-line">
-    <span class="timeline-date">May 2025</span>
-    <span class="timeline-content">
-      Awarded Pepperdine's <strong class="highlight">Outstanding Division Researcher</strong> and 
-      <strong class="highlight">Outstanding Natural Science Student</strong> 
-      <span style="color: red;">(top 1)</span>.
-    </span>
-  </div>
-</div>
-
-
-    
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">April 2025</span>
-        <span class="timeline-content">Awarded the <strong class="highlight">NSF Graduate Research Fellowship (GRFP)</strong>!</a></span>
+      <div class="contact">
+        <a class="contact-btn" href="mailto:seanwu@stanford.edu" aria-label="Email">
+          <svg><use href="#i-mail"/></svg> Email
+        </a>
+        <a class="contact-btn" href="https://scholar.google.com/citations?user=Z7Ul8jUAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar">
+          <svg><use href="#i-scholar"/></svg> Scholar
+        </a>
+        <a class="contact-btn" href="https://github.com/SeanWu25" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg><use href="#i-github"/></svg> GitHub
+        </a>
+        <a class="contact-btn" href="https://x.com/sean_n_wu" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg><use href="#i-x"/></svg> Twitter
+        </a>
       </div>
     </div>
-    
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Nov 2024</span>
-        <span class="timeline-content">Excited to be selected as Pepperdine's first ever <strong class="highlight">Rhodes Scholar</strong>. <a href="https://www.pepperdine.edu/newsroom/articles/seaver-college-student-sean-wu-receives-pepperdine-universitys-first-rhodes-scholarship.htm">[Article]</a></span>
+  </header>
+
+  <!-- ============ Bio ============ -->
+  <section class="bio">
+    <p>
+      I'm a Rhodes Scholar at the University of Oxford, advised by <a href="https://eng.ox.ac.uk/chi/team/">David Clifton</a>, and I work with the <a href="https://torrvision.com/index.html">Torr Vision Group</a>. In Fall 2026 I begin a Ph.D. in Computer Science at Stanford. My research focuses on the reliability of LLMs and how to make them trustworthy in science and medicine.
+    </p>
+    <p>
+      Previously I studied CS and Math at Pepperdine, advised by <a href="https://web.cs.ucla.edu/~fab/">Fabien Scalzo</a>, and interned with <a href="https://www.james-zou.com/">James Zou</a> at Stanford. I've been awarded the NSF GRFP, the Goldwater Scholarship, and more.
+    </p>
+    <div class="interests">
+      <span class="label">Interests:</span>
+      <span class="tag">LLM uncertainty</span>
+      <span class="tag">medical AI</span>
+      <span class="tag">AI for science</span>
+    </div>
+  </section>
+
+  <!-- ============ Tab Nav ============ -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="news" role="tab">News</button>
+    <button class="tab-btn" data-tab="publications" role="tab">Publications</button>
+    <button class="tab-btn" data-tab="education" role="tab">Education</button>
+    <button class="tab-btn" data-tab="beyond" role="tab">Beyond</button>
+  </nav>
+
+  <!-- ============ News ============ -->
+  <div class="tab-pane active" id="news">
+    <div class="news">
+      <div class="news-row">
+        <div class="news-date">May 2026</div>
+        <div class="news-text"><span class="news-new">new</span>Released <strong>CUSP</strong>, forecasting scientific progress with AI. <a href="https://arxiv.org/abs/2605.22681">paper</a></div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">May 2026</div>
+        <div class="news-text"><span class="news-new">new</span><strong>BioMedArena</strong>: open-source toolkit for biomedical deep-research agents.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">May 2026</div>
+        <div class="news-text"><span class="news-new">new</span><strong>MedMisBench</strong>: measuring epistemic resilience of LLMs under misleading medical context.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Apr 2026</div>
+        <div class="news-text">New paper introducing the <strong>Behavioral Alignment Score</strong> for LLM confidence evaluation.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Mar 2026</div>
+        <div class="news-text">Invited talk "Towards Reliable AI in an Agentic Era" at the <a href="https://wavesinnovationsummit.com/">Waves Innovation Summit</a>. <a href="https://drive.google.com/file/d/1otgbwneV0TLIJtDk8OaQk6n1ShxOZMGP/view">slides</a></div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Feb 2026</div>
+        <div class="news-text">Paper on Semantic Self-Distillation for LLM uncertainty on arXiv.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-text">Paper on AI protein structure/function accepted to <strong>Nature Reviews Nephrology</strong>.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Dec 2025</div>
+        <div class="news-text">Paper on glaucoma progression prediction accepted to <strong>American Journal of Ophthalmology</strong>.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Nov 2025</div>
+        <div class="news-text">Received a <strong>Tinker Research Grant</strong> from Thinking Machines Lab.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Sep 2025</div>
+        <div class="news-text">First paper from Oxford on detecting and correcting LLM uncertainty.</div>
+      </div>
+
+      <div class="news-row news-hidden">
+        <div class="news-date">May 2025</div>
+        <div class="news-text">Pepperdine <strong>Outstanding Division Researcher</strong> and Outstanding Natural Science Student.</div>
+      </div>
+      <div class="news-row news-hidden">
+        <div class="news-date">Apr 2025</div>
+        <div class="news-text">Awarded the <strong>NSF Graduate Research Fellowship</strong>.</div>
+      </div>
+      <div class="news-row news-hidden">
+        <div class="news-date">Nov 2024</div>
+        <div class="news-text">Selected as Pepperdine's first <strong>Rhodes Scholar</strong>. <a href="https://www.pepperdine.edu/newsroom/articles/seaver-college-student-sean-wu-receives-pepperdine-universitys-first-rhodes-scholarship.htm">article</a></div>
+      </div>
+      <div class="news-row news-hidden">
+        <div class="news-date">Feb 2024</div>
+        <div class="news-text">Medical LLM research featured in <strong>ZDNET</strong>. <a href="https://www.zdnet.com/article/this-is-why-open-source-generative-ai-models-are-a-step-behind-gpt-4/">article</a></div>
+      </div>
+      <div class="news-row news-hidden">
+        <div class="news-date">Dec 2023</div>
+        <div class="news-text">CRA Outstanding Undergraduate Researcher Honorable Mention.</div>
+      </div>
+      <div class="news-row news-hidden">
+        <div class="news-date">Mar 2023</div>
+        <div class="news-text">Awarded the <strong>Barry Goldwater Scholarship</strong>.</div>
       </div>
     </div>
-
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Sep 2024</span>
-        <span class="timeline-content">Delivered a spotlight talk on my AI research at the <strong class="highlight">Human-Centered AI Conference</strong> hosted by Pepperdine. <a href="https://seaver.pepperdine.edu/newsroom/articles/9-19-24-human-centered-ai.htm">[Article]</a></span>
-      </div>
+    <div class="news-more">
+      <button id="newsToggle" type="button">show more</button>
     </div>
+  </div>
 
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">May 2024</span>
-        <span class="timeline-content">Joined <strong class="highlight">Deloitte’s LLM/NLP team</strong> for summer research on ontology-based language models.</span>
+  <!-- ============ Publications ============ -->
+  <div class="tab-pane" id="publications">
+    <p class="legend">★ selected work &nbsp;·&nbsp; * equal contribution</p>
+
+    <!-- AI for Science -->
+    <h3 class="cat">AI for Science <span class="count">2 papers</span></h3>
+
+    <div class="pub featured">
+      <div class="pub-thumb">
+        <!-- <img src="CUSP_Figure_1.png" alt="CUSP teaser" /> -->
+        <div class="ph">CUSP_Figure_1.png</div>
       </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Feb 2024</span>
-        <span class="timeline-content">Research on medical LLMs was featured in <strong class="highlight">ZDNET Tech News</strong>. <a href="https://www.zdnet.com/article/this-is-why-open-source-generative-ai-models-are-a-step-behind-gpt-4/">[Article]</a></span>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Dec 2023</span>
-        <span class="timeline-content">Received a <strong class="highlight">CRA Outstanding Undergraduate Researcher Honorable Mention</strong> for national recognition in computing research. <a href="https://seaver.pepperdine.edu/newsroom/articles/1-25-24-sean-wu-cra.htm">[Article]</a></span>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Sep 2023</span>
-        <span class="timeline-content">Featured by Pepperdine University for leading research on medical applications of LLMs. <a href="https://seaver.pepperdine.edu/newsroom/articles/9-28-23-sean-wu.htm">[Article]</a></span>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/abs/2605.22681">Forecasting Scientific Progress with Artificial Intelligence</a></div>
+        <div class="authors"><span class="me">Sean Wu*</span>, Pan Lu*, Yupeng Chen, Jonathan Bragg, Yutaro Yamada, Peter Clark, David Clifton, Philip Torr, James Zou, Junchi Yu</div>
+        <div class="venue">arXiv preprint, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/abs/2605.22681"><svg><use href="#i-doc"/></svg>arXiv</a>
+          <a class="link-pill" href="https://github.com/SeanWu25/cusp-scientific-foresight"><svg><use href="#i-code"/></svg>Code</a>
+          <a class="link-pill" href="https://huggingface.co/datasets/SeanWu25/CUSP"><svg><use href="#i-data"/></svg>Data</a>
+        </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Jul 2023</span>
-        <span class="timeline-content">Awarded the <strong class="highlight">Northrop Grumman Endowed Scholarship</strong> for excellence in computer science.</span>
+    <div class="pub featured">
+      <div class="pub-thumb">
+        <!-- <img src="Nature.png" alt="Kidney proteins figure" /> -->
+        <div class="ph">Nature.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://www.nature.com/articles/s41581-026-01060-6">Bridging Structure and Function: AI-Based Modelling of Kidney Proteins</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Weiguang Wang, Z. Hong Zhou, Fabien Scalzo, Ira Kurtz</div>
+        <div class="venue">Nature Reviews Nephrology, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://www.nature.com/articles/s41581-026-01060-6"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">May 2023</span>
-        <span class="timeline-content">Completed a summer internship with <strong class="highlight">Amazon Science</strong> and the <strong class="highlight">Columbia University Billinge Group</strong> (SURE) focused on AI for material science.</span>
+    <!-- Language Models -->
+    <h3 class="cat">Language Models &amp; Reliability <span class="count">8 papers</span></h3>
+
+    <div class="pub featured">
+      <div class="pub-thumb">
+        <!-- <img src="BAS_git.png" alt="BAS figure" /> -->
+        <div class="ph">BAS_git.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/abs/2604.03216">BAS: A Decision-Theoretic Approach to Evaluating Large Language Model Confidence</a></div>
+        <div class="authors"><span class="me">Sean Wu*</span>, Fredrik K. Gustafsson*, Edward Phillips, Boyan Gao, Anshul Thakur, David A. Clifton</div>
+        <div class="venue">arXiv, 2026 (under review)</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/abs/2604.03216"><svg><use href="#i-doc"/></svg>arXiv</a>
+          <a class="link-pill" href="https://github.com/SeanWu25/Behavioral-Alignment-Score"><svg><use href="#i-code"/></svg>Code</a>
+        </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">Mar 2023</span>
-        <span class="timeline-content">I'm super excited to be awarded the <strong class="highlight">Barry Goldwater Scholarship</strong>.<a href="https://seaver.pepperdine.edu/newsroom/articles/4-20-23-sean-wu-goldwater.htm">[Article]</a></span>
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="biomedarena.png" alt="BioMedArena" /> -->
+        <div class="ph">biomedarena.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/pdf/2605.06177">BioMedArena: An Open-source Toolkit for Building and Evaluating Biomedical Deep Research Agents</a></div>
+        <div class="authors">Jinge Wu*, Hongjian Zhou*, Mingde Zeng, Jiayuan Zhu, Junde Wu, Jiazhen Pan, <span class="me">Sean Wu</span>, Honghan Wu, Fenglin Liu, David A. Clifton</div>
+        <div class="venue">arXiv, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/pdf/2605.06177"><svg><use href="#i-doc"/></svg>arXiv</a>
+          <a class="link-pill" href="https://github.com/AI-in-Health/BioMedArena"><svg><use href="#i-code"/></svg>Code</a>
+        </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-line">
-        <span class="timeline-date">May 2022</span>
-        <span class="timeline-content">Conducted summer research on AI for science at the <strong class="highlight">Keck Data Science Institute</strong>.</span>
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="medmisbench.png" alt="MedMisBench" /> -->
+        <div class="ph">medmisbench.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://www.biorxiv.org/content/10.64898/2026.05.25.727671v1.full.pdf">MedMisBench: Measuring Epistemic Resilience of LLMs Under Misleading Medical Context</a></div>
+        <div class="authors">Hongjian Zhou*, Xinyu Zou*, Jinge Wu*, <span class="me">Sean Wu</span>, et al., Fenglin Liu, David A. Clifton</div>
+        <div class="venue">bioRxiv, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://www.biorxiv.org/content/10.64898/2026.05.25.727671v1.full.pdf"><svg><use href="#i-doc"/></svg>bioRxiv</a>
+          <a class="link-pill" href="https://github.com/AI-in-Health/MedMisBench"><svg><use href="#i-code"/></svg>Code</a>
+        </div>
       </div>
     </div>
 
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="SSD.png" alt="SSD" /> -->
+        <div class="ph">SSD.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/pdf/2602.04577">Semantic Self-Distillation for Language Model Uncertainty</a></div>
+        <div class="authors">Edward Phillips, <span class="me">Sean Wu</span>, Boyan Gao, David Clifton</div>
+        <div class="venue">Preprint, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/pdf/2602.04577"><svg><use href="#i-doc"/></svg>arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="ICLR.png" alt="Geometric Uncertainty" /> -->
+        <div class="ph">ICLR.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/pdf/2509.13813">Geometric Uncertainty for Detecting and Correcting Hallucinations in LLMs</a></div>
+        <div class="authors">Edward Phillips*, <span class="me">Sean Wu*</span>, Soheila Molaei, Danielle Belgrave, Anshul Thakur, David Clifton</div>
+        <div class="venue">Under review at TMLR, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/pdf/2509.13813"><svg><use href="#i-doc"/></svg>arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="entropy.png" alt="Entropy" /> -->
+        <div class="ph">entropy.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/abs/2603.21172">Entropy Alone is Insufficient for Safe Selective Prediction in LLMs</a></div>
+        <div class="authors">Edward Phillips, Fredrik K. Gustafsson, <span class="me">Sean Wu</span>, Anshul Thakur, David A. Clifton</div>
+        <div class="venue">arXiv, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/abs/2603.21172"><svg><use href="#i-doc"/></svg>arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="NPJ.png" alt="Self-Improving Clinical Reasoning" /> -->
+        <div class="ph">NPJ.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://openreview.net/pdf?id=VOa0lDJ5Ui">Self-Improving Clinical Reasoning via Textual Gradients</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Michael Koo, Fabien Scalzo, Ira Kurtz</div>
+        <div class="venue">ICLR 2026 Workshop on AI Recursive Self-Improvement</div>
+        <div class="links">
+          <a class="link-pill" href="https://openreview.net/pdf?id=VOa0lDJ5Ui"><svg><use href="#i-doc"/></svg>OpenReview</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub featured">
+      <div class="pub-thumb">
+        <!-- <img src="rag.png" alt="Adversarial Databases" /> -->
+        <div class="ph">rag.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://openreview.net/pdf?id=kLLzUfSpzQ">Adversarial Databases Improve Success in Retrieval-based Large Language Models</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Michael Koo, Liyo Kao, Andy Black, Lesley Blum, Fabien Scalzo, Ira Kurtz</div>
+        <div class="venue">NeurIPS 2024 Workshop on Adversarial ML &nbsp;<span class="spotlight">spotlight</span> (top 21%)</div>
+        <div class="links">
+          <a class="link-pill" href="https://openreview.net/pdf?id=kLLzUfSpzQ"><svg><use href="#i-doc"/></svg>OpenReview</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub featured">
+      <div class="pub-thumb">
+        <!-- <img src="NEJM.png" alt="NEJM" /> -->
+        <div class="ph">NEJM.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://ai.nejm.org/doi/pdf/10.1056/AIdbp2300092">Benchmarking Open-Source LLMs, GPT-4, and Claude 2 on Multiple-Choice Questions in Nephrology</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Michael Koo, Lesley Blum, Andy Black, Zhe Fei, Fabien Scalzo, Ira Kurtz</div>
+        <div class="venue">NEJM AI, Vol. 1 No. 2, 2024</div>
+        <div class="links">
+          <a class="link-pill" href="https://ai.nejm.org/doi/pdf/10.1056/AIdbp2300092"><svg><use href="#i-doc"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neurovascular -->
+    <h3 class="cat">Neurovascular 3D Reconstruction <span class="count">2 papers</span></h3>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="fourier.png" alt="Fourier Feature Network" /> -->
+        <div class="ph">fourier.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://link.springer.com/article/10.1007/s00138-024-01585-5">Fourier Feature Network for 3D Vessel Reconstruction from Biplane Angiograms</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Kaneko Naoki, David S. Liebeskind, Fabien Scalzo</div>
+        <div class="venue">Journal of Machine Vision and Applications, 2024</div>
+        <div class="links">
+          <a class="link-pill" href="https://link.springer.com/article/10.1007/s00138-024-01585-5"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="Celebral.png" alt="3D Cerebral" /> -->
+        <div class="ph">Celebral.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-47969-4_30">3D Reconstruction from 2D Cerebral Angiograms as a Volumetric Denoising Problem</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Kaneko Naoki, Steve Mendoza, David S. Liebeskind, Fabien Scalzo</div>
+        <div class="venue">International Symposium on Visual Computing, 2023</div>
+        <div class="links">
+          <a class="link-pill" href="https://link.springer.com/chapter/10.1007/978-3-031-47969-4_30"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medical Imaging -->
+    <h3 class="cat">Deep Learning in Medical Imaging <span class="count">5 papers</span></h3>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="multimodal.png" alt="Glaucoma prognostic" /> -->
+        <div class="ph">multimodal.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0002939425006853">An AI-Based Prognostic Model for Functional Glaucoma Progression from Clinical and Structural Data</a></div>
+        <div class="authors">Vahid Mohammadzadeh, <span class="me">Sean Wu</span>, Sajad Besharati, et al., Kouros Nouri-Mahdavi</div>
+        <div class="venue">American Journal of Ophthalmology, 2026</div>
+        <div class="links">
+          <a class="link-pill" href="https://www.sciencedirect.com/science/article/abs/pii/S0002939425006853"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="ARVO.png" alt="Visual field progression" /> -->
+        <div class="ph">ARVO.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://www.sciencedirect.com/science/article/pii/S0002939424000564?via%3Dihub">Predicting Visual Field Progression from Baseline and Longitudinal Structural Measurements with Deep Learning</a></div>
+        <div class="authors">Vahid Mohammadzadeh, <span class="me">Sean Wu</span>, Tyler Davis, et al., Kouros Nouri-Mahdavi</div>
+        <div class="venue">American Journal of Ophthalmology, 2024</div>
+        <div class="links">
+          <a class="link-pill" href="https://www.sciencedirect.com/science/article/pii/S0002939424000564?via%3Dihub"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="vae.png" alt="MAE Denoising" /> -->
+        <div class="ph">vae.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://arxiv.org/pdf/2411.12146">Denoising Visual Field Data via Self-Supervised Masked Autoencoders for Glaucoma Progression Detection</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Vahid Mohammadzadeh, Jun Yu Chen, Jaewon Lee, Kouros Nouri-Mahdavi, Joseph Caprioli*, Zhe Fei*, Fabien Scalzo*</div>
+        <div class="venue">arXiv preprint, 2024</div>
+        <div class="links">
+          <a class="link-pill" href="https://arxiv.org/pdf/2411.12146"><svg><use href="#i-doc"/></svg>arXiv</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="4.png" alt="Optic disc photos" /> -->
+        <div class="ph">4.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://bjo.bmj.com/content/early/2023/10/12/bjo-2023-324277.abstract">Prediction of Visual Field Progression with Serial Optic Disc Photographs Using Deep Learning</a></div>
+        <div class="authors">Vahid Mohammadzadeh, <span class="me">Sean Wu</span>, Tyler Davis, Arvind Vepa, Esteban Morales, et al., Kouros Nouri-Mahdavi</div>
+        <div class="venue">British Journal of Ophthalmology, 2023</div>
+        <div class="links">
+          <a class="link-pill" href="https://bjo.bmj.com/content/early/2023/10/12/bjo-2023-324277.abstract"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="2.png" alt="Auxiliary domain learning" /> -->
+        <div class="ph">2.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-44013-7_3">Auxiliary-Domain Learning for a Functional Prediction of Glaucoma Progression</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Vahid Mohammadzadeh, Kiumars Edalati, Jack Martinyan, Arthur Martinyan, Joseph Caprioli, Kouros Nouri-Mahdavi, Fabien Scalzo</div>
+        <div class="venue">Int'l Workshop on Ophthalmic Medical Image Analysis, 2023</div>
+        <div class="links">
+          <a class="link-pill" href="https://link.springer.com/chapter/10.1007/978-3-031-44013-7_3"><svg><use href="#i-external"/></svg>Paper</a>
+          <a class="link-pill" href="https://www.youtube.com/watch?v=wTjczXUgteU"><svg><use href="#i-video"/></svg>Video</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="3.png" alt="OCT central visual field" /> -->
+        <div class="ph">3.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://tvst.arvojournals.org/article.aspx?articleid=2792982">Prediction of Central Visual Field Measures from Macular OCT Volume Scans with Deep Learning</a></div>
+        <div class="authors">Vahid Mohammadzadeh*, Arvind Vepa*, Chuanlong Li, <span class="me">Sean Wu</span>, et al., Kouros Nouri-Mahdavi</div>
+        <div class="venue">Translational Vision Science &amp; Technology, 2023</div>
+        <div class="links">
+          <a class="link-pill" href="https://tvst.arvojournals.org/article.aspx?articleid=2792982"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Miscellaneous -->
+    <h3 class="cat">Miscellaneous <span class="count">2 papers</span></h3>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="FoilNet.png" alt="Foil-Net" /> -->
+        <div class="ph">FoilNet.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-47966-3_9">Foil-Net: Deep Wave Classification for Hydrofoil Surfing</a></div>
+        <div class="authors">Zachary Mossing, <span class="me">Sean Wu</span>, Kevin Hong, Fabien Scalzo, Jesse Cha</div>
+        <div class="venue">International Symposium on Visual Computing, 2023</div>
+        <div class="links">
+          <a class="link-pill" href="https://link.springer.com/chapter/10.1007/978-3-031-47966-3_9"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <!-- <img src="6.png" alt="Plant xylem" /> -->
+        <div class="ph">6.png</div>
+      </div>
+      <div class="pub-body">
+        <div class="title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-20713-6_18">Deep Learning–Based Classification of Plant Xylem Tissue from Light Micrographs</a></div>
+        <div class="authors"><span class="me">Sean Wu</span>, Reem Al Dabagh, Anna L. Jacobsen, Helen I. Holmlund, Fabien Scalzo</div>
+        <div class="venue">International Symposium on Visual Computing, 2022</div>
+        <div class="links">
+          <a class="link-pill" href="https://link.springer.com/chapter/10.1007/978-3-031-20713-6_18"><svg><use href="#i-external"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-
-         <div id="Research" class="tabcontent">
-<h3>AI4Science</h3>
-
-<table cellspacing="15">
-  <tr>
-    <td>
-        <img src="CUSP_Figure_1.png" width="200" height="120">
-    </td>
-    <td>
-        <b><span style="color:red;">[NEW]</span> Forecasting Scientific Progress with Artificial Intelligence</b>
-        <br>
-        <i>Sean Wu*</i>, 
-        Pan Lu*, 
-        Yupeng Chen, 
-        Jonathan Bragg, 
-        Yutaro Yamada, 
-        Peter Clark, 
-        David Clifton, 
-        Philip Torr, 
-        James Zou, 
-        Junchi Yu,
-        <i>arXiv preprint, 2026</i>,
-        <br>
-        <a href="https://arxiv.org/abs/2605.22681">[arXiv]</a>
-        <a href="https://github.com/SeanWu25/cusp-scientific-foresight">[Code]</a>
-        <a href="https://huggingface.co/datasets/SeanWu25/CUSP">[Data]</a>
-    </td>
-</tr>
-<tr>
-    <td>
-        <img src="Nature.png" width="200" height="120">
-    </td>
-    <td>
-        <b><span style="color:red;">[NEW]</span> Bridging Structure and Function: AI-Based Modelling of Kidney Proteins</b>
-        <br>
-        <i>Sean Wu</i>, 
-        Weiguang Wang, 
-        Z. Hong Zhou, 
-        Fabien Scalzo, 
-        Ira Kurtz,
-      <i>Nature Reviews Nephrology, 2026</i>,
-
-        <br>
-        <a href="https://www.nature.com/articles/s41581-026-01060-6">[Article]</a>
-    </td>
-</tr>
-</table>
-
-<h3>Natural Language Processing (NLP)</h3>
-
-<table cellspacing="15">
-  <tr>
-  <td>
-    <img src="biomedarena.png" width="200" height="120" alt="BioMedArena Thumbnail">
-  </td>
-  <td>
-    <b><span style="color:red;">[NEW]</span> BioMedArena: An Open-source Toolkit for Building and Evaluating Biomedical Deep Research Agents</b>
-    <br>
-    Jinge Wu*, Hongjian Zhou*, Mingde Zeng, Jiayuan Zhu, Junde Wu, Jiazhen Pan, <i>Sean Wu</i>, Honghan Wu, Fenglin Liu, David A. Clifton
-    <br>
-    <i>(arXiv 2026)</i>
-    <br>
-    <a href="https://arxiv.org/pdf/2605.06177">[ArXiv]</a> 
-  /
-    <a href="https://github.com/AI-in-Health/BioMedArena">[Code]</a>
-  </td>
-</tr>
-  <tr>
-  <td>
-    <img src="medmisbench.png" width="200" height="120" alt="MedMisBench Thumbnail">
-  </td>
-  <td>
-    <b><span style="color:red;">[NEW]</span> MedMisBench: Measuring Epistemic Resilience of LLMs Under Misleading Medical Context</b>
-    <br>
-    Hongjian Zhou1*, Xinyu Zou2*, Jinge Wu3*, <i>Sean Wu</i>1, Junchi Wu1, Bradley Max Segal1, Tobias Erich Niebuhr1, Sara Amro1, Michael Petrus1, Sheikh Momin1, Alexandra Cardoso Pinto1, Rachel Niesen1, Laura Sophie Wegner1, Dhruv Darji1, Jung Moses Koo1, Joshua Fieggen1, Kapil Narain1, Mingde Zeng4, Lei Clifton1, Linda Shapiro2, Fenglin Liu1†, David A. Clifton1†
-    <br>
-    <i>(bioRxiv 2026)</i>
-    <br>
-    <a href="https://www.biorxiv.org/content/10.64898/2026.05.25.727671v1.full.pdf">[bioRxiv]</a>
-    /
-    <a href="https://github.com/AI-in-Health/MedMisBench">[Code]</a>
-    /
-    <a href="https://github.com/AI4HealthResearch/MedMisBench">[Code]</a>
-  </td>
-</tr>
-<tr>
-  <td>
-    <img src="BAS_git.png" width="200" height="120">
-  </td>
-  <td>
-    <b><span style="color:red;">[NEW]</span> BAS: A Decision-Theoretic Approach to Evaluating Large Language Model Confidence</b>
-    <br>
-    <i>Sean Wu*</i>, Fredrik K. Gustafsson*, Edward Phillips, Boyan Gao, Anshul Thakur, David A. Clifton
-    <br>
-    <i>(arXiv 2026, under review)</i>,
-    <br>
-    <a href="https://arxiv.org/abs/2604.03216">[ArXiv]</a>
-    /
-    <a href="https://github.com/SeanWu25/Behavioral-Alignment-Score">[Code]</a>
-  </td>
-</tr>
-<tr>
-    <td>
-        <img src="SSD.png" width="200" height="120">
-    </td>
-    <td>
-        <b><span style="color:red;">[NEW]</span> Semantic Self-Distillation for Language Model Uncertainty</b>
-<br>
-Edward Phillips, <i>Sean Wu</i>, 
-Boyan Gao, David Clifton, 
-<i>(Preprint 2026)</i>,
-<br>
-
-
-        <a href="https://arxiv.org/pdf/2602.04577">[ArXiv]</a>
-    </td>
-</tr>
-
-<tr>
-    <td>
-        <img src="ICLR.png" width="200" height="120">
-    </td>
-    <td>
-        <b><span style="color:red;">[NEW]</span> Geometric Uncertainty for Detecting and Correcting Hallucinations in LLMs</b>
-<br>
-Edward Phillips*, <i>Sean Wu*</i> <mark>(co-first author)</mark>, 
-Soheila Molaei, Danielle Belgrave, Anshul Thakur, David Clifton, 
-<i>(Under Review at TMLR 2026)</i>,
-<br>
-
-
-        <a href="https://arxiv.org/pdf/2509.13813">[ArXiv]</a>
-    </td>
-</tr>
-<tr>
-    <td>
-        <img src="entropy.png" width="200" height="120">
-    </td>
-    <td>
-        <b><span style="color:red;">[NEW]</span> Entropy Alone is Insufficient for Safe Selective Prediction in LLMs</b>
-<br>
-Edward Phillips, Fredrik K. Gustafsson, <i>Sean Wu</i>, 
-Anshul Thakur, David A. Clifton,
-<i>(arXiv 2026)</i>,
-<br>
-
-        <a href="https://arxiv.org/abs/2603.21172">[ArXiv]</a>
-    </td>
-</tr>
-
-    <tr>
-        <td>
-            <img src="NPJ.png" width="200" height="120">
-        </td>
-<td>
-    <b>Self-Improving Clinical Reasoning Via Textual Gradients</b>
-    <br>
-    <i>Sean Wu</i>, Michael Koo, Fabien Scalzo, Ira Kurtz, 
-    <i>ICLR'26 Workshop on AI Recursive Self Improvement</i>, 
-    <br>
-    <a href="https://openreview.net/pdf?id=VOa0lDJ5Ui">[OpenReview]</a>
-</td>
-
-    </tr>  
-
-
-  
-    <tr>
-        <td>
-            <img src="rag.png" width="200" height="120">
-        </td>
-<td>
-    <b>Adversarial Databases Improve Success in Retrieval-based Large Language Models</b>
-    <br>
-    <i>Sean Wu</i>, Michael Koo, Liyo Kao, Andy Black, Lesley Blum, Fabien Scalzo, Ira Kurtz, 
-    <i>The 3rd New Frontiers in Adversarial Machine Learning in NeurIPS'2024</i>, 
-    (2024, <span style="color: red;"><b>spotlight presentation</b></span>, top 21% of accepted papers).
-    <br>
-    <a href="https://openreview.net/pdf?id=kLLzUfSpzQ">[OpenReview]</a>
-</td>
-
-    </tr>  
-    <tr>
-        <td>
-            <img src="NEJM.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Benchmarking Open-Source Large Language Models, GPT-4 and Claude 2 on Multiple-Choice Questions in Nephrology</b>
-            <br>
-            <i>Sean Wu</i>, Michael Koo, Lesley Blum, Andy Black, Zhe Fei, Fabien Scalzo, Ira Kurtz, <i>New England Journal of Medicine Artificial Intelligence</i>, Vol. 1 No. 2, 2024.           
-            <br>
-            <a href="https://ai.nejm.org/doi/pdf/10.1056/AIdbp2300092">[Paper]</a>
-        </td>
-    </tr>       
-</table>
-
-<h3>Neurovascular 3D Reconstruction</h3>
-<table cellspacing="15">
-    <tr>
-        <td>
-            <img src="Celebral.png" width="200" height="120">
-        </td>
-        <td>
-            <b>3D Reconstruction from 2D Cerebral Angiograms as a Volumetric Denoising Problem</b>
-            <br>
-            <i>Sean Wu</i>, Kaneko Naoki, Steve Mendoza, David S Liebeskind, Fabien Scalzo, <i>International Symposium on Visual Computing</i>, pp. 382-393. Cham: Springer Nature Switzerland, 2023.        
-            <br>
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-47969-4_30">[Paper]</a>
-        </td>
-    </tr>  
-    <tr>
-        <td>
-            <img src="fourier.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Fourier Feature Network for 3D Vessel Reconstruction from Biplane Angiograms</b>
-            <br>
-            <i>Sean Wu</i>, Kaneko Naoki, David S Liebeskind, Fabien Scalzo, <i>Journal of Machine Vision and Applications</i>, 2024.        
-            <br>
-            <a href="https://link.springer.com/article/10.1007/s00138-024-01585-5">[Paper]</a>
-        </td>
-    </tr>  
-</table>
-
-
-                 
-<h3>Deep Learning in Medical Imaging</h3>
-<table cellspacing="15">
-      <tr>
-        <td>
-            <img src="multimodal.png" width="200" height="120">
-        </td>
-        <td>
-            <b>An AI-Based Prognostic Model for Prediction of Functional Glaucoma Progression from Clinical and Structural Data</b>
-            <br>
-            Vahid Mohammadzadeh, <i>Sean Wu</i>, Sajad Besharati, Kiumars Edelati, Mahshad Rafiee, Jack Martinyan, Arthur Martinyan, Fabien Scalzo, Joseph Caprioli, Kouros Nouri-Mahdavi, <i>American Journal of Ophthalmology
-</i> (2026).          
-            <br>
-            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0002939425006853">[Paper]</a>
-        </td>
-    </tr>
-    
-    <tr>
-        <td>
-            <img src="4.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Prediction of visual field progression with serial optic disc photographs using deep learning</b>
-            <br>
-            Vahid Mohammadzadeh, <i>Sean Wu</i>, Tyler Davis, Arvind Vepa, Esteban Morales, Sajad Besharati, Kiumars Edalati, Jack Martinyan, Mahshad Rafiee, Arthur Martynian, Fabien Scalzo, Joseph Caprioli, Kouros Nouri-Mahdavi, <i>British Journal of Ophthalmology</i> (2023).
-            <br>
-            <a href="https://bjo.bmj.com/content/early/2023/10/12/bjo-2023-324277.abstract">[Paper]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="2.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Auxiliary-Domain Learning for a Functional Prediction of Glaucoma Progression</b>
-            <br>
-            <i>Sean Wu</i>, Vahid Mohammadzadeh, Kiumars Edalati, Jack Martinyan, Arthur Martinyan, Joseph Caprioli, Kouros Nouri-Mahdavi, Fabien Scalzo, <i>International Workshop on Ophthalmic Medical Image Analysis</i> (pp. 21-31). Cham: Springer Nature Switzerland.           
-            <br>
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-44013-7_3">[Paper]</a> <a href="https://www.youtube.com/watch?v=wTjczXUgteU">[Video]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="3.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Prediction of Central Visual Field Measures From Macular OCT Volume Scans With Deep Learning</b>
-            <br>
-            Vahid Mohammadzadeh*, Arvind Vepa*, Chuanlong Li, <i>Sean Wu</i>, Leila Chew, Golnoush Mahmoudinezhad, Evan Maltz, Serhat Sahin, Apoorva Mylavarapu, Kiumars Edalati, Jack Martinyan, Dariush Yalzadeh, Fabien Scalzo, Joseph Caprioli, Kouros Nouri-Mahdavi, <i>Translational Vision Science & Technology</i> 12, no. 11 (2023): 5-5.          
-            <br>
-            <a href="https://tvst.arvojournals.org/article.aspx?articleid=2792982">[Paper]</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="ARVO.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Prediction of visual field progression based on baseline and longitudinal structural measurements with a deep learning model</b>
-            <br>
-            Vahid Mohammadzadeh, <i>Sean Wu</i>, Tyler Davis, Arvind Vepa, Esteban Morales, Sajad Besharati, Kiumars Edalati, Jack Martinyan, Mahshad Rafiee, Arthur Martynian, Fabien Scalzo, Joseph Caprioli, Kouros Nouri-Mahdavi, <i> American Journal of Ophthalmology</i> (2024).
-            <br>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0002939424000564?via%3Dihub">[Paper]</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td>
-            <img src="vae.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Denoising visual field data via self-supervised masked autoencoders for enhanced glaucoma progression detection</b>
-            <br>
-            <i>Sean Wu</i>, Vahid Mohammadzadeh, Jun Yu Chen, Jaewon Lee, Kouros Nouri-Mahdavi, Joseph Caprioli*, Zhe Fei*, Fabien Scalzo*, <i> arXiv preprint arXiv:2411.12146
-</i>, (2024).            
-            <br>
-            <a href="https://arxiv.org/pdf/2411.12146">[ArXiv]</a>
-        </td>
-    </tr>       
-</table>
-
-<h3>Miscellaneous</h3>
-<table cellspacing="15">
-    <tr>
-        <td>
-            <img src="FoilNet.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Foil-Net: Deep Wave Classification for Hydrofoil Surfing</b>
-            <br>
-            Zachary Mossing, <i>Sean Wu</i>, Kevin Hong, Fabien Scalzo, Jesse Cha, <i>International Symposium on Visual Computing</i>, pp. 109-120. Cham: Springer Nature Switzerland, 2023.          
-            <br>
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-47966-3_9">[Paper]</a>
-        </td>
-    </tr>    
-    <tr>
-        <td>
-            <img src="6.png" width="200" height="120">
-        </td>
-        <td>
-            <b>Deep Learning-Based Classification of Plant Xylem Tissue from Light Micrographs</b>
-            <br>
-            <i>Sean Wu</i>, Reem Al Dabagh, Anna L. Jacobsen, Helen I. Holmlund, Fabien Scalzo, <i>International Symposium on Visual Computing</i>, pp. 237-248. Cham: Springer International Publishing, 2022.           
-            <br>
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-20713-6_18">[Paper]</a>
-        </td>
-    </tr>    
-
-
-
-</table>
-                     </div>
-    <div id="Media" class="tabcontent">
-<h2>Education</h2>
-<ul>
-          <li>
-    <strong>
-      <img src="stanford_logo.png" alt="Stanford Logo" style="height: 25px; vertical-align: middle; margin-right: 6px;">
-      Stanford University
-    </strong>, 2026-
-    <ul>
-      <li>Computer Science PhD</li>
-    
-
+  <!-- ============ Education ============ -->
+  <div class="tab-pane" id="education">
+    <h3 class="cat">Education</h3>
+    <ul class="simple-list">
+      <li>
+        <img class="school-logo" src="stanford_logo.png" alt="Stanford" />
+        <strong>Stanford University</strong> — Ph.D. in Computer Science <span class="meta">2026 — incoming</span>
+      </li>
+      <li>
+        <img class="school-logo" src="oxford_logo.png" alt="Oxford" />
+        <strong>University of Oxford</strong> — Rhodes Scholar, graduate researcher in AI <span class="meta">2025–</span>
+      </li>
+      <li>
+        <img class="school-logo" src="pepperdine_logo.png" alt="Pepperdine" />
+        <strong>Pepperdine University</strong> — B.S. in Computer Science &amp; Mathematics, GPA 4.0/4.0 <span class="meta">2021–2025</span>
+      </li>
     </ul>
-  </li>
 
-          <li>
-    <strong>
-      <img src="oxford_logo.png" alt="Oxford Logo" style="height: 25px; vertical-align: middle; margin-right: 6px;">
-      University of Oxford
-    </strong>, 2025
-    <ul>
-      <li>Rhodes Scholarship</li>
-      <li>Graduate Researcher in AI</li>
-      <li>Advisor: Professor David Clifton</li>
-
+    <h3 class="cat">Teaching</h3>
+    <ul class="simple-list">
+      <li>Teaching Assistant — CS 450 Programming Paradigms</li>
+      <li>Teaching Assistant — CS 320 Data Structures</li>
+      <li>Teaching Assistant — CS 220 Applied Data Science / ML</li>
+      <li>Teaching Assistant — CS 210 Introduction to Machine Learning</li>
     </ul>
-  </li>
-  <li>
-    <strong>
-      <img src="pepperdine_logo.png" alt="Pepperdine Logo" style="height: 25px; vertical-align: middle; margin-right: 6px;">
-      Pepperdine University
-    </strong>, Malibu, 2021–2025
-    <ul>
-      <li>B.S. in Computer Science/Mathematics</li>
-      <li>Minor in Advanced Data Science</li>
-      <li>Overall GPA: 4.0/4.0</li>
-    </ul>
-  </li>
+  </div>
 
+  <!-- ============ Beyond ============ -->
+  <div class="tab-pane" id="beyond">
 
-</ul>
+    <h3 class="cat">Basketball</h3>
 
-<h2>Teaching</h2>
-<ul>
-  <li> <strong>Teaching Assistant</strong>, CS 450: Programming Paradigms </li>
-   <li>   <strong>Teaching Assistant</strong>, CS 320: Data Structures </li>
-    <li>   <strong>Teaching Assistant</strong>, CS 220: Applied Data Science/Machine Learning </li>
-   <li>    <strong>Teaching Assistant</strong>, CS 210: Introduction to Machine Learning </li>
-   <li>    <strong>CS University Tutor</strong>, All CS and Math Courses at Pepperdine </li>
- 
-</ul>
-</div>
+    <div class="hobby-row">
+      <div class="hobby-img">
+        <!-- <img src="tby3.png" alt="2025 intramural team" /> -->
+        <div class="ph">tby3.png</div>
+      </div>
+      <div class="hobby-text">2025 intramural team.</div>
+    </div>
 
-<div id="Hobbies" class="tabcontent">
+    <div class="hobby-row">
+      <div class="hobby-img">
+        <!-- <img src="taobao_2024.JPG" alt="2024 intramural team" /> -->
+        <div class="ph">taobao_2024.JPG</div>
+      </div>
+      <div class="hobby-text">2024 intramural team.</div>
+    </div>
 
-<h2>Basketball</h2>
-<div class="hobby-container">
-    <div class="hobby-image">
-        <img src="tby3.png" alt="Intramural Basketball Team 2025">
+    <div class="hobby-row">
+      <div class="hobby-img">
+        <!-- <img src="taobao_2023.jpg" alt="2023 intramural team" /> -->
+        <div class="ph">taobao_2023.jpg</div>
+      </div>
+      <div class="hobby-text">2023 intramural team.</div>
     </div>
-    <div class="hobby-description">
-        2025 intramural team.
-    </div>
-</div>
-<div class="hobby-container">
-    <div class="hobby-image">
-        <img src="taobao_2024.JPG" alt="Intramural Basketball Team 2024">
-    </div>
-    <div class="hobby-description">
-        2024 intramural team.
-    </div>
-</div>
 
-<div class="hobby-container">
-    <div class="hobby-image">
-        <img src="taobao_2023.jpg" alt="Intramural Basketball Team 2023">
+    <div class="hobby-row">
+      <div class="hobby-img">
+        <!-- <img src="resized_basket.gif" alt="Midrange jumpshot" /> -->
+        <div class="ph">resized_basket.gif</div>
+      </div>
+      <div class="hobby-text">Midrange jumpshot.</div>
     </div>
-    <div class="hobby-description">
-        2023 intramural team.
-    </div>
-</div>
-<div class="hobby-container">
-    <div class="hobby-image">
-        <img src="resized_basket.gif" alt="midrange">
-    </div>
-    <div class="hobby-description">
-        Midrange jumpshot.
-    </div>
-</div>
 
-<h2>Music</h2>
-<div class="hobby-container">
-    <div class="hobby-image">
-        <img src="wu_tuba.jpg" alt="Sean playing the tuba">
+    <h3 class="cat">Music</h3>
+
+    <div class="hobby-row">
+      <div class="hobby-img">
+        <!-- <img src="wu_tuba.jpg" alt="Tuba" /> -->
+        <div class="ph">wu_tuba.jpg</div>
+      </div>
+      <div class="hobby-text">Tuba Scholarship at Pepperdine University.</div>
     </div>
-    <div class="hobby-description">
-        Tuba Scholarship at Pepperdine University! 
-    </div>
-</div>
+
+  </div>
+
+  <footer>
+    <div>© 2026 Sean Wu</div>
+  </footer>
 
 </div>
 
-</div> <!-- End of wrapper -->
+<script>
+  // Tabs
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.tab-pane');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+      panes.forEach(p => p.classList.toggle('active', p.id === target));
+      history.replaceState(null, '', '#' + target);
+    });
+  });
+  const hash = (location.hash || '').replace('#', '');
+  if (hash) {
+    const btn = document.querySelector('.tab-btn[data-tab="' + hash + '"]');
+    if (btn) btn.click();
+  }
 
+  // News show more
+  const newsBtn = document.getElementById('newsToggle');
+  newsBtn.addEventListener('click', () => {
+    const hidden = document.querySelectorAll('.news-hidden');
+    const isShown = hidden[0] && hidden[0].classList.contains('show');
+    hidden.forEach(el => el.classList.toggle('show', !isShown));
+    newsBtn.textContent = isShown ? 'show more' : 'show less';
+  });
+</script>
 
-
- <script>
-      function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-      }
-
-      // Open the first tab by default
-      document.addEventListener("DOMContentLoaded", function() {
-        document.getElementsByClassName('tablinks')[0].click();
-      });
-    </script>
 </body>
 </html>
