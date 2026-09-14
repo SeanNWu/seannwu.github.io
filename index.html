@@ -490,6 +490,22 @@ footer {
   gap: 8px;
 }
 footer a { color: var(--ink-muted); }
+
+  .header { display: flex; gap: 32px; align-items: flex-start; }
+.header img { flex: 0 0 auto; }
+.header-text { flex: 1; min-width: 0; }
+
+h1 { margin: 0 0 16px; letter-spacing: -0.02em; }
+
+.bio p { max-width: 64ch; line-height: 1.65; margin: 0 0 14px; }
+.bio p:last-child { margin-bottom: 0; }
+
+.contact { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+.interests { margin-top: 20px; }
+
+@media (max-width: 700px) {
+  .header { flex-direction: column; gap: 20px; }
+}
 </style>
 </head>
 <body>
@@ -537,15 +553,20 @@ footer a { color: var(--ink-muted); }
 
 <div class="wrap">
 
-  <!-- ============ Header ============ -->
+   <!-- ============ Header ============ -->
   <header class="header">
     <img src="2026_sean.JPG" alt="Sean Wu" />
 
-    <div>
+    <div class="header-text">
       <h1>Sean Wu</h1>
-      <div class="role">
-        <span class="marker"></span><span class="here">Rhodes Scholar</span>, University of Oxford<br/>
-        Incoming Ph.D., Stanford Computer Science &nbsp;<span style="color: var(--ink-muted); font-size: 13px;">(Fall 2026)</span>
+
+      <div class="bio">
+        <p>
+          I'm a first year Ph.D. student in Computer Science at Stanford University. My research focuses on the reliability of LLMs and how to make them trustworthy in science and medicine.
+        </p>
+        <p>
+          Previously, I was a Rhodes Scholar at the University of Oxford, where I was advised by <a href="https://eng.ox.ac.uk/chi/team/">David Clifton</a> and worked with the <a href="https://torrvision.com/index.html">Torr Vision Group</a>. I studied CS and Math at Pepperdine, advised by <a href="https://web.cs.ucla.edu/~fab/">Fabien Scalzo</a>, and previously worked with <a href="https://www.james-zou.com/">James Zou</a> at Stanford. I've been awarded the NSF GRFP and the Goldwater Scholarship.
+        </p>
       </div>
 
       <div class="contact">
@@ -562,26 +583,16 @@ footer a { color: var(--ink-muted); }
           <svg><use href="#i-x"/></svg> Twitter
         </a>
       </div>
+
+      <div class="interests">
+        <span class="label">Interests:</span>
+        <span class="tag">LLM uncertainty</span>
+        <span class="tag">medical AI</span>
+        <span class="tag">AI for science</span>
+      </div>
     </div>
   </header>
-
-  <!-- ============ Bio ============ -->
-<section class="bio">
-  <p>
-    I'm a first year Ph.D. student in Computer Science at Stanford University. My research focuses on the reliability of LLMs and how to make them trustworthy in science and medicine.
-  </p>
-  <p>
-    Previously, I was a Rhodes Scholar at the University of Oxford, where I was advised by <a href="https://eng.ox.ac.uk/chi/team/">David Clifton</a> and worked with the <a href="https://torrvision.com/index.html">Torr Vision Group</a>. I studied CS and Math at Pepperdine, advised by <a href="https://web.cs.ucla.edu/~fab/">Fabien Scalzo</a>, and previously worked with <a href="https://www.james-zou.com/">James Zou</a> at Stanford. I've been awarded the NSF GRFP, the Goldwater Scholarship, and more.
-  </p>
-</section>
-
-    <div class="interests">
-      <span class="label">Interests:</span>
-      <span class="tag">LLM uncertainty</span>
-      <span class="tag">medical AI</span>
-      <span class="tag">AI for science</span>
-    </div>
-  </section>
+  
 
   <!-- ============ Tab Nav ============ -->
   <nav class="tabs" role="tablist">
